@@ -70,15 +70,15 @@ def Air_Pollution_Day(data):
 def pola_curah_hujan (data):
     # Perbandingan per bulan (atau sesuaikan dengan periode waktu yang diinginkan)
 # Buat kolom 'bulan'
-data1['bulan'] = data1['tanggal'].dt.strftime('%Y-%m')
+data['bulan'] = data['tanggal'].dt.strftime('%Y-%m')
 # Perbandingan Per Bulan
-monthly_comparison = data1.groupby('bulan').mean()
+monthly_comparison = data.groupby('bulan').mean()
 monthly_comparison
 # Ekstrak bulan dari kolom tanggal
-data1['bulan'] = data1['tanggal'].dt.month
+data1['bulan'] = data['tanggal'].dt.month
 
 # Perbandingan rata-rata curah hujan per bulan
-monthly_rain_comparison = data1.groupby('bulan')['RAIN'].mean()
+monthly_rain_comparison = data.groupby('bulan')['RAIN'].mean()
 
 # Visualisasi pola musiman curah hujan
 plt.figure(figsize=(10, 6))
