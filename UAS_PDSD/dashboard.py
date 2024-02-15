@@ -69,24 +69,24 @@ def Air_Pollution_Day(data):
 
 def pola_curah_hujan (data):
     # Perbandingan per bulan (atau sesuaikan dengan periode waktu yang diinginkan)
-    # Buat kolom 'bulan'
-    data['bulan'] = data['tanggal'].dt.strftime('%Y-%m')
-    # Perbandingan Per Bulan
-    monthly_comparison = data.groupby('bulan').mean()
-    monthly_comparison
-    # Ekstrak bulan dari kolom tanggal
-    data['bulan'] = data['tanggal'].dt.month
-    
-    # Perbandingan rata-rata curah hujan per bulan
-    monthly_rain_comparison = data.groupby('bulan')['RAIN'].mean()
-    
-    # Visualisasi pola musiman curah hujan
-    plt.figure(figsize=(10, 6))
-    sns.barplot(x=monthly_rain_comparison.index, y=monthly_rain_comparison)
-    plt.xlabel('Bulan')
-    plt.ylabel('Rata-rata Curah Hujan')
-    plt.title('Pola Musiman Curah Hujan')
-    plt.show()
+# Buat kolom 'bulan'
+data1['bulan'] = data1['tanggal'].dt.strftime('%Y-%m')
+# Perbandingan Per Bulan
+monthly_comparison = data1.groupby('bulan').mean()
+monthly_comparison
+# Ekstrak bulan dari kolom tanggal
+data1['bulan'] = data1['tanggal'].dt.month
+
+# Perbandingan rata-rata curah hujan per bulan
+monthly_rain_comparison = data1.groupby('bulan')['RAIN'].mean()
+
+# Visualisasi pola musiman curah hujan
+plt.figure(figsize=(10, 6))
+sns.barplot(x=monthly_rain_comparison.index, y=monthly_rain_comparison)
+plt.xlabel('Bulan')
+plt.ylabel('Rata-rata Curah Hujan')
+plt.title('Pola Musiman Curah Hujan')
+plt.show()
     with st.expander("See explanation"):
         st.write(
     """Untuk menentukan tingkat polusi udara saya mengambil berdasarkan PM2.5. PM2.5 sebuah istilah yang digunakan untuk mengukur partikel halus di udara, yang memiliki diameter kurang dari atau sama dengan 2.5 mikrometer. Partikel ini dapat berasal dari berbagai sumber, termasuk emisi kendaraan bermotor, industri, pembakaran biomassa, dan debu.
