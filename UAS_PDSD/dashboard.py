@@ -75,7 +75,7 @@ def pola_curah_hujan (data):
     monthly_comparison = data.groupby('bulan').mean()
     monthly_comparison
     # Ekstrak bulan dari kolom tanggal
-    data1['bulan'] = data['tanggal'].dt.month
+    data['bulan'] = data['tanggal'].dt.month
 
     # Perbandingan rata-rata curah hujan per bulan
     monthly_rain_comparison = data.groupby('bulan')['RAIN'].mean()
@@ -87,10 +87,8 @@ def pola_curah_hujan (data):
     plt.ylabel('Rata-rata Curah Hujan')
     plt.title('Pola Musiman Curah Hujan')
     plt.show()
-    plt.legend()
-    st.pyplot(plt)
-    with st.expander("See explanation"):
-        st.write(
+        with st.expander("See explanation"):
+            st.write(
     """Untuk menentukan tingkat polusi udara saya mengambil berdasarkan PM2.5. PM2.5 sebuah istilah yang digunakan untuk mengukur partikel halus di udara, yang memiliki diameter kurang dari atau sama dengan 2.5 mikrometer. Partikel ini dapat berasal dari berbagai sumber, termasuk emisi kendaraan bermotor, industri, pembakaran biomassa, dan debu.
     Seperti ya dilihat berdasarkan grafik bahwa tingkat polusi tertinggi di station Aotizhongxin biasa terjadi di bulan pergantian tahun atau bulan awal awal tahun.
     """
